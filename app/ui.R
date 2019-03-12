@@ -4,10 +4,10 @@ library(shiny)
 shinyUI(pageWithSidebar(
   headerPanel("Chicago Transit Ridership"),
   sidebarPanel(
-    selectInput("route", "Choose a route",
-                choices = df_agg$route)
+    selectInput("routetype", "Choose a route type",
+                choices = df_agg$daytype)
   ),
   mainPanel(
-   plotOutput("route_bar") 
+   plotOutput("route_barPlot") 
   )
 ))

@@ -1,9 +1,10 @@
 library(shiny)
 
 shinyServer(function(input, output){
-  output$route_bar <- renderPlot({
-    route_bar <- ggplot(df_agg, aes(year, rides1000)) +
-      geom_bar(stat = "identity")
-    route_bar
+  output$route_barPlot <- renderPlot({
+    barplot(df_agg[,input$routetype],
+            main=input$routetype,
+            ylab = "rides",
+            xlab = "year")
   })
 })
