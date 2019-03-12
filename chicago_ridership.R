@@ -19,11 +19,12 @@ head(df, 10)
 # aggregate: sum rides on year/route/daytype
 df_agg <- aggregate(rides ~year+route+daytype, data=df, sum)
 head(df_agg)
+df_agg$rides1000 <- df_agg$rides/1000
 
 # df_agg$routeNo <- as.numeric(levels(df_agg$route))
 #filter(df_agg, as.numeric(levels(df_agg$route)) <= 15)
 
-route_bar <- ggplot(df_agg, aes(year, rides)) +
+route_bar <- ggplot(df_agg, aes(year, rides1000)) +
   geom_bar(stat = "identity")
 route_bar
 
@@ -33,6 +34,19 @@ route_10_15_bar <- ggplot(route10_15, aes(year, rides)) +
   geom_bar(stat = "identity")
 route_10_15_bar
 
+
+
+
+
+
+
+
+
+
+
+
+
+############################## other practice ####################################
 ##facet!
 route_10_15_bar + facet_grid(rows = vars(route))
 
